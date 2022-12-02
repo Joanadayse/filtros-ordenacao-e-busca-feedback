@@ -31,6 +31,15 @@ const Header = (props) => {
     props.setIdFilter(e.target.value);
   };
 
+  const handTipo=(e)=>{
+    props.setTipo(e.target.value)
+  }
+
+  const handOrdem=(e)=>{
+    props.setOrdem(e.target.value)
+
+  }
+
   return (
     <Container>
         <input
@@ -45,14 +54,16 @@ const Header = (props) => {
         onChange={handleSearch}
         value={props.pesquisa}
       />
-      <select>
+      <select value={props.ordem} onChange={handOrdem}>
         <option value="">Ordenar</option>
-        <option value="">Crescente</option>
-        <option value="">Decrescente</option>
+        <option value="crescente">Crescente</option>
+        <option value="decrescente">Decrescente</option>
       </select>
       <select
         name="tipo"
         id="tipo"
+        value={props.tipo}
+        onChange={handTipo}
           >
         <option value="">Selecione um tipo</option>
         {pokemontypesArray.map((type) => {
